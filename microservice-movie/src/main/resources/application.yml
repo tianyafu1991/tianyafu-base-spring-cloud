@@ -1,0 +1,20 @@
+server:
+  port: 8087
+spring:
+  application:
+    name: microservice-movie
+eureka:
+  client:
+    # 作为客户端需要注册到Eureka
+    register-with-eureka: true
+    # 作为客户端需要从Eureka中获取注册信息
+    fetch-registry: true
+    # Eureka服务端地址 客户端向该地址进行注册
+    service-url:
+      defaultZone: http://127.0.0.1:8888/eureka
+      # 获取提供方的注册信息的时间间隔
+    registry-fetch-interval-seconds: 5
+  instance:
+    # 优先使用该服务的ip地址注册到Eureka
+    prefer-ip-address: true
+

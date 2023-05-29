@@ -1,0 +1,19 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: eureka-server
+# 单机版Eureka配置
+eureka:
+  client:
+    fetch-registry: false # 是否需要从Eureka中获取注册信息
+    register-with-eureka: false # 是否需要把该服务注册到Eureka
+    service-url: # 暴露Eureka注册地址
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+  instance:
+    hostname: 127.0.0.1
+    prefer-ip-address: true
+  server:
+    enable-self-preservation: false # 关闭自我保护机制
+    eviction-interval-timer-in-ms: 10000 # 让服务端每隔10秒扫描一次 将失效的服务尽快剔除
+    response-cache-update-interval-ms: 3000 # 配置readOnlyCacheMap的更新频率为3秒

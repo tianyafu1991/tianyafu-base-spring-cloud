@@ -1,0 +1,27 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: microservcie-user
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:sdw2}:${MYSQL_PORT:3306}/${MYSQL_DATABASE_NAME:tianyafu_spring_cloud}?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:dd@2016}
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    database: mysql
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${eureka.instance.ip-address}:8888/eureka
+  instance:
+    prefer-ip-address: true # 优先使用该服务的ip地址注册到Eureka
+    ip-address: 127.0.0.1
+    # 服务续约的时间间隔
+    lease-expiration-duration-in-seconds: 5
+    # 服务失效时间
+    lease-renewal-interval-in-seconds: 10
