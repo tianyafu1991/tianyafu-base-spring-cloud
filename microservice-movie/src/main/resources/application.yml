@@ -18,3 +18,7 @@ eureka:
     # 优先使用该服务的ip地址注册到Eureka
     prefer-ip-address: true
 
+# 开启熔断器
+feign:
+  hystrix:
+    enabled: true

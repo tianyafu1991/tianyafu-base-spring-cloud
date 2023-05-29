@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * 2.检查调用路径是否完整 因为Controller上面也有路径
  * 3.@PathVariable注解的value不能省略
  */
-@FeignClient(value = "microservcie-user")
-@RequestMapping("/user")
+@FeignClient(value = "microservcie-user",fallback = UserFeignImpl.class)
+//@RequestMapping("/user")
 public interface UserFeign {
 
-    @GetMapping("/findById/{id}")
+    @GetMapping("/user/findById/{id}")
     User findById(@PathVariable(value = "id") Integer id);
 }

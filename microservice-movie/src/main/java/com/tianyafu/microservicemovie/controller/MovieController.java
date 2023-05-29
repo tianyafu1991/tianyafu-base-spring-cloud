@@ -26,6 +26,7 @@ public class MovieController {
 
     /**
      * 使用openFeign
+     * localhost:8087/movie/order
      * @return
      */
     @PostMapping("/order")
@@ -39,4 +40,6 @@ public class MovieController {
         System.out.println(user + "正在购票......");
         return "购票成功";
     }
+
+
 }
